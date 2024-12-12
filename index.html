@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberSafe Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <button id="refresh-button" class="refresh-button">🔄 RESET</button>
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <h3>⚠️ CONFIRM RESET</h3>
+        <p>Are you sure you want to reset? All data will be obliterated!</p>
+        <div class="modal-buttons">
+          <button id="confirm-refresh" class="button green">RESET</button>
+          <button id="cancel-refresh" class="button red">CANCEL</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <h1>🔐 CYBERSAFE VAULT</h1>
+      <p class="note">
+        <strong>WARNING:</strong> This interface operates in your browser. Keep your secrets secret!
+      </p>
+
+      <div class="section">
+        <h2>🔒 ENCRYPT DATA</h2>
+        <textarea id="encrypt-seed" placeholder="Enter your secret data"></textarea>
+        <div class="password-input">
+          <input id="encrypt-password" type="password" placeholder="Enter a passphrase">
+          <span id="toggle-encrypt-password" class="password-toggle">👁️</span>
+        </div>
+        <button id="encrypt-button" class="button green">ENCRYPT</button>
+        <div id="encrypted-output" class="output hidden">
+          <h3>🔐 ENCRYPTED DATA:</h3>
+          <textarea id="encrypted-seed" readonly></textarea>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>🔓 DECRYPT DATA</h2>
+        <textarea id="decrypt-seed" placeholder="Paste encrypted data here"></textarea>
+        <div class="password-input">
+          <input id="decrypt-password" type="password" placeholder="Enter your passphrase">
+          <span id="toggle-decrypt-password" class="password-toggle">👁️</span>
+        </div>
+        <button id="decrypt-button" class="button blue">DECRYPT</button>
+        <div id="decrypted-output" class="output hidden">
+          <h3>🔓 DECRYPTED DATA:</h3>
+          <textarea id="decrypted-seed" readonly></textarea>
+        </div>
+      </div>
+
+      <p id="error-message" class="error-message hidden"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="crypt.js"></script>
+</body>
+</html>
